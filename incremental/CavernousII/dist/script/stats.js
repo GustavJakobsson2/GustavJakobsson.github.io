@@ -168,7 +168,7 @@ class Stat {
         this.dirty = true;
     }
     get statIncreaseDivisor() {
-        return settings.debug_statIncreaseDivisor || 100;
+        return settings.debug_statIncreaseDivisor || 99;
     }
     spendMana(amount) {
         if (this.name !== "Mana") {
