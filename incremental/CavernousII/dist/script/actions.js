@@ -207,9 +207,11 @@ function canMineMana(location) {
     return CanStartReturnCode.Now;
 }
 function mineManaRockCost(location, clone = null, realm = null, completionOveride) {
+    var comp=completionOveride ?? location.priorCompletions
+    comp=comp**0.99-comp**0.5
     return location.completions && !completionOveride
         ? 0
-        : Math.pow(1 + (0.1 + 0.05 * (location.zone.index + (realm == null ? currentRealm : realm))) * longZoneCompletionMult(location.x, location.y, location.zone.index), (completionOveride ?? location.priorCompletions)**0.99);
+        : Math.pow(1 + (0.1 + 0.05 * (location.zone.index + (realm == null ? currentRealm : realm))) * longZoneCompletionMult(location.x, location.y, location.zone.index), comp);
 }
 function mineGemCost(location) {
     return (location.completions + 1) ** 1.4;
