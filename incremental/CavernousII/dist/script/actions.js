@@ -208,7 +208,7 @@ function canMineMana(location) {
 }
 function mineManaRockCost(location, clone = null, realm = null, completionOveride) {
     var comp=completionOveride ?? location.priorCompletions
-    comp=comp**0.99-comp**0.51
+    comp=comp**0.98
     return location.completions && !completionOveride
         ? 0
         : Math.pow(1 + (0.1 + 0.05 * (location.zone.index + (realm == null ? currentRealm : realm))) * longZoneCompletionMult(location.x, location.y, location.zone.index), comp);
