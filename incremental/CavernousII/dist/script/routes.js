@@ -192,7 +192,7 @@ class Route {
         const totalRockTime = this.cloneArriveTimes.reduce((a, c) => a + (manaTotal - (c / 1000)), 0);
         const rockCost = this.getRefineCost(completed ? 1 : 0);
         const magic = getStat("Magic").base;
-        const finalMagic = magic + (totalRockTime + this.goldVaporized[0]) / 10;
+        const finalMagic = magic + (totalRockTime*1.01 + this.goldVaporized[0]) / 10;
         let estimate = totalRockTime - rockCost / (((magic + finalMagic) / 2 + 100) / 100);
         estimate /= this.cloneArriveTimes.length;
         estimate -= this.drainLoss;
