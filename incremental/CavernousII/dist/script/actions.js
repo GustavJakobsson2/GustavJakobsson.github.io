@@ -603,7 +603,7 @@ const actions = [
     new Action("Mine Salt", 50000, [["Mining", 1]], completeSaltMine),
     new Action("Mine Gem", 100000, [["Mining", 0.75], ["Gemcraft", 0.25]], completeMine),
     new Action("Collect Gem", 100000, [["Smithing", 0.1], ["Gemcraft", 1]], completeCollectGem, null, null, mineGemCost),
-    new Action("Collect Mana", 1000, [["Magic", 1.01]], completeCollectMana, canMineMana, tickCollectMana, mineManaRockCost),
+    new Action("Collect Mana", 1000, [["Magic", 1]], completeCollectMana, canMineMana, tickCollectMana, mineManaRockCost),
     new Action("Activate Machine", 1000, [], completeActivateMachine, startActivateMachine),
     new Action("Make Iron Bars", 5000, [["Smithing", 1]], simpleCreate([["Iron Bar", 1]]), simpleRequire([["Iron Ore", 1]], true)),
     new Action("Make Steel Bars", 15000, [["Smithing", 1]], simpleCreate([["Steel Bar", 1]]), simpleRequire([["Iron Bar", 1], ["Coal", 1]], true)),
