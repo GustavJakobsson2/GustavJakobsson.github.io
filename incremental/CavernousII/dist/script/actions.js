@@ -208,7 +208,7 @@ function canMineMana(location) {
 }
 function mineManaRockCost(location, clone = null, realm = null, completionOveride) {
     var comp=completionOveride ?? location.priorCompletions
-    comp=comp**0.98
+    //comp=comp**0.98
     return location.completions && !completionOveride
         ? 0
         : Math.pow(1 + (0.1 + 0.05 * (location.zone.index + (realm == null ? currentRealm : realm))) * longZoneCompletionMult(location.x, location.y, location.zone.index), comp);
@@ -622,7 +622,7 @@ const actions = [
     new Action("Create Armour", 10000, [["Smithing", 1]], simpleCreate([["Iron Armour", 1]]), canMakeEquip([["Iron Bar", 4]], "Armour")),
     new Action("Upgrade Armour", 25000, [["Smithing", 1]], simpleCreate([["Steel Armour", 1]]), simpleRequire([["Steel Bar", 2], ["Iron Armour", 1]])),
     new Action("Enchant Armour", 3000000, [["Smithing", 0.5], ["Gemcraft", 0.5]], simpleCreate([["+1 Armour", 1]]), simpleRequire([["Gem", 3], ["Steel Armour", 1]])),
-    new Action("Attack Creature", 1000, [["Combat", 1]], completeFight, null, tickFight, combatDuration),
+    new Action("Attack Creature", 1000, [["Combat", 1.01]], completeFight, null, tickFight, combatDuration),
     new Action("Teleport", 1, [["Runic Lore", 1]], completeTeleport, startTeleport, null, predictTeleport),
     new Action("Charge Duplication", 50000, [["Runic Lore", 1]], completeChargeRune, startChargableRune, null, duplicateDuration),
     new Action("Charge Wither", 1000, [["Runic Lore", 1]], completeWither, null, tickWither, predictWither),
